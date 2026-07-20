@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <title data-title>Crown Travel</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <img src="img/logo.jpeg" alt="Crown Travel" class="logo">
+                <span class="brand-name" data-brand-name>Crown Travel</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#discover" class="nav-link" data-nav-discover>Discover</a>
+                <a href="#about-halongbay" class="nav-link" data-nav-about>About Ha Long Bay</a>
+                <a href="#book" class="nav-link" data-nav-booking>Book Flight</a>
+            </nav>
+            <div class="header-actions">
+                <div class="language-selector" role="group" aria-label="Language selector">
+                    <button class="lang-btn active" type="button" onclick="selectLanguage('en')">EN</button>
+                    <button class="lang-btn" type="button" onclick="selectLanguage('pt')">PT</button>
+                    <button class="lang-btn" type="button" onclick="selectLanguage('es')">ES</button>
+                </div>
+                <div class="auth-wrapper">
+                    <button id="login-button" class="btn-auth" data-btn-login>Login</button>
+                    <button id="register-button" class="btn-auth btn-auth-primary" data-btn-register>Register</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="discover">
+        <div class="hero-banners">
+            <img src="img/banner1.jpeg" alt="Ha Long Bay" class="hero-banner active">
+            <img src="img/banner2.jpeg" alt="Ha Long Bay Adventure" class="hero-banner">
+            <img src="img/banner3.jpeg" alt="Ha Long Bay Exploration" class="hero-banner">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-hero-title>Discover the Wonder of Ha Long Bay</h1>
+            <p data-hero-subtitle>Experience the magic of Vietnam's most iconic destination</p>
+            <button class="btn-cta" type="button" onclick="document.getElementById('book').scrollIntoView({behavior: 'smooth'})" data-btn-explore>Book Your Adventure</button>
+        </div>
+        <div class="banner-indicators">
+            <button class="indicator active" type="button" onclick="changeBanner(0)"></button>
+            <button class="indicator" type="button" onclick="changeBanner(1)"></button>
+            <button class="indicator" type="button" onclick="changeBanner(2)"></button>
+        </div>
+    </section>
+
+    <section class="about-section" id="about-halongbay">
+        <div class="about-container">
+            <div class="about-content">
+                <h2 data-about-title>About Ha Long Bay</h2>
+                <p data-about-desc>Ha Long Bay, located in northern Vietnam, is one of the world's most stunning natural wonders. With over 1,600 limestone islands rising dramatically from emerald waters, it's a UNESCO World Heritage Site that captivates visitors with breathtaking beauty and adventure opportunities.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌊</div>
+                        <h3 data-feature-1-title>Crystal Clear Waters</h3>
+                        <p data-feature-1-desc>Swim in pristine emerald waters surrounded by dramatic limestone cliffs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏝️</div>
+                        <h3 data-feature-2-title>Island Hopping</h3>
+                        <p data-feature-2-desc>Explore hundreds of scenic islands and hidden caves by traditional boat.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌅</div>
+                        <h3 data-feature-3-title>Unforgettable Sunsets</h3>
+                        <p data-feature-3-desc>Witness breathtaking sunsets from the water as day fades into dusk.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏔️</div>
+                        <h3 data-feature-4-title>Adventure Activities</h3>
+                        <p data-feature-4-desc>Rock climbing, kayaking, and diving for the thrill-seekers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="book">
+        <div class="booking-container">
+            <h2 data-booking-title>Book Your Flight</h2>
+            <p data-booking-subtitle>Start your journey to Ha Long Bay today</p>
+            <form class="booking-form" id="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="from" data-label-from>From</label>
+                        <input type="text" id="from" class="form-input" data-placeholder-from placeholder="Departure City" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="to" data-label-to>To</label>
+                        <input type="text" id="to" class="form-input" data-placeholder-to placeholder="Ha Long Bay, Vietnam" value="Ha Long Bay" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="departure-date" data-label-departure>Departure Date</label>
+                        <input type="date" id="departure-date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="return-date" data-label-return>Return Date</label>
+                        <input type="date" id="return-date" class="form-input">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="passengers" data-label-passengers>Passengers</label>
+                        <select id="passengers" class="form-input">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="class" data-label-class>Class</label>
+                        <select id="class" class="form-input">
+                            <option value="economy" data-option-economy>Economy</option>
+                            <option value="premium" data-option-premium>Premium Economy</option>
+                            <option value="business" data-option-business>Business</option>
+                            <option value="first" data-option-first>First Class</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit" data-btn-search>Search Flights</button>
+            </form>
+            <div id="booking-result" class="booking-result"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 data-footer-company>Company</h4>
+                <ul>
+                    <li><a href="#" data-footer-about>About Us</a></li>
+                    <li><a href="#" data-footer-career>Careers</a></li>
+                    <li><a href="#" data-footer-press>Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-footer-support>Support</h4>
+                <ul>
+                    <li><a href="#" data-footer-contact>Contact Us</a></li>
+                    <li><a href="#" data-footer-faq>FAQ</a></li>
+                    <li><a href="#" data-footer-help>Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-footer-legal>Legal</h4>
+                <ul>
+                    <li><a href="#" data-footer-privacy>Privacy Policy</a></li>
+                    <li><a href="#" data-footer-terms>Terms of Service</a></li>
+                    <li><a href="#" data-footer-cookies>Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-footer-copyright>&copy; 2026 Crown Travel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
