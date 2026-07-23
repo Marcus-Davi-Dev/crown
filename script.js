@@ -60,6 +60,7 @@ function selectLanguage(lang) {
     document.querySelectorAll('.lang-btn').forEach((button) => {
         button.classList.toggle('active', button.textContent === lang.toUpperCase());
     });
+    localStorage.setItem("selectedLanguage", lang);
 }
 
 function updateDocumentLanguage(lang) {
@@ -80,8 +81,6 @@ function updateDocumentLanguage(lang) {
                 const tag = element.tagName.toLowerCase();
                 if (tag === 'input' && element.type !== 'button') {
                     element.placeholder = text;
-                } else if (tag === 'button' || tag === 'a' || tag === 'select' || tag === 'label' || tag === 'p' || tag === 'h1' || tag === 'h2' || tag === 'h3' || tag === 'h4' || tag === 'span') {
-                    element.textContent = text;
                 } else {
                     element.textContent = text;
                 }
@@ -157,7 +156,18 @@ function handleBookingSubmit(event) {
 }
 
 function setInitialTranslations() {
-    updateDocumentLanguage('en');
+    if (localStorage.getItem("selectedLanguage")) {
+        selectLanguage(localStorage.getItem("selectedLanguage"));
+        return;
+    }
+
+    for (let i = 0; i < navigator.languages.length; i++) {
+        if (Object.keys(languages).includes(navigator.languages[i])) {
+            selectLanguage(navigator.languages[i]);
+            localStorage.setItem("selectedLanguage", navigator.languages[i]);
+            return;
+        }
+    }
 }
 
 window.selectLanguage = selectLanguage;
