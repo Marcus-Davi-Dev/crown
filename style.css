@@ -5,6 +5,9 @@
     background-color: #f8fafc;
     font-size: 16px;
     line-height: 1.6;
+
+    --lang-hover-bg: #3f4554;
+    --soft-black: #0f172a;
 }
 
 * {
@@ -83,7 +86,7 @@ button, input, select {
 
 .nav-link:hover,
 .nav-link:focus-visible {
-    color: #0f172a;
+    color: var(--soft-black);
 }
 
 .header-actions {
@@ -109,10 +112,14 @@ button, input, select {
     transition: background-color 160ms ease, color 160ms ease;
 }
 
-.lang-btn.active,
-.lang-btn:hover,
-.lang-btn:focus-visible {
-    background: #0f172a;
+.lang-btn.active {
+    background: var(--soft-black);
+    color: #f8fafc;
+}
+
+.lang-btn:hover:not(.active),
+.lang-btn:focus-visible:not(.active) {
+    background: var(--lang-hover-bg);
     color: #f8fafc;
 }
 
@@ -124,14 +131,14 @@ button, input, select {
 .btn-auth {
     border: 1px solid rgba(15, 23, 42, 0.12);
     background: transparent;
-    color: #0f172a;
+    color: var(--soft-black);
     border-radius: 999px;
     padding: 0.7rem 1rem;
     cursor: pointer;
 }
 
 .btn-auth-primary {
-    background: #0f172a;
+    background: var(--soft-black);
     color: #ffffff;
     border-color: transparent;
 }
@@ -249,7 +256,7 @@ button, input, select {
 .booking-container h2 {
     font-size: 2.3rem;
     margin-bottom: 1rem;
-    color: #0f172a;
+    color: var(--soft-black);
 }
 
 .about-content p,
@@ -325,7 +332,7 @@ select {
     border-radius: 18px;
     padding: 0.95rem 1rem;
     background: #f8fafc;
-    color: #0f172a;
+    color: var(--soft-black);
     outline: none;
     width: 100%;
 }
@@ -340,7 +347,7 @@ select:focus {
     width: fit-content;
     border: none;
     border-radius: 999px;
-    background: #0f172a;
+    background: var(--soft-black);
     color: #ffffff;
     padding: 1rem 1.8rem;
     font-weight: 700;
@@ -377,7 +384,7 @@ select:focus {
 .footer-section h4 {
     margin: 0 0 1rem;
     font-size: 1rem;
-    color: #0f172a;
+    color: var(--soft-black);
 }
 
 .footer-section ul {
