@@ -327,6 +327,7 @@ select {
     background: #f8fafc;
     color: #0f172a;
     outline: none;
+    width: 100%;
 }
 
 .form-input:focus,
